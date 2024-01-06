@@ -1,0 +1,74 @@
+
+interface BankInterface {
+    double getBalance();
+    double getInterestRate();
+}
+
+class BankA implements BankInterface {
+    private double balance;
+
+    public BankA(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public double getInterestRate() {
+        return 0.07; 
+    }
+}
+
+class BankB implements BankInterface {
+    private double balance;
+
+    public BankB(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public double getInterestRate() {
+        return 0.074; 
+    }
+}
+
+// BankC.java
+class BankC implements BankInterface {
+    private double balance;
+
+    public BankC(double balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public double getInterestRate() {
+        return 0.079; 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        BankInterface bankA = new BankA(10000);
+        BankInterface bankB = new BankB(150000);
+        BankInterface bankC = new BankC(200000);
+
+        
+        System.out.println("Bank A - Balance: " + bankA.getBalance() + ", Interest Rate: " + (bankA.getInterestRate() * 100) + "%");
+        System.out.println("Bank B - Balance: " + bankB.getBalance() + ", Interest Rate: " + (bankB.getInterestRate() * 100) + "%");
+        System.out.println("Bank C - Balance: " + bankC.getBalance() + ", Interest Rate: " + (bankC.getInterestRate() * 100) + "%");
+    }
+}
